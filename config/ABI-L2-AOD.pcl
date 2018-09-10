@@ -1,0 +1,80 @@
+var fname="OR_ABI-L1b-RadC-M3C01_G16_s20182211607268_e20182211610041_c20182211610085.nc"
+var inputdir="input/"
+var outputdir="output/"
+var varname="AOD"
+//-----------------------------
+//DO NOT EDIT ABOVE THIS LINE
+
+// Open a dataset.
+var ncdata1 = panoply.openDataset ( inputdir + fname);
+
+// Select a variable.
+var ncvar1 = ncdata1.getVariable ( varname );
+
+// Create the plot.
+var myplot = panoply.createPlot ( "lonlat", ncvar1 );
+
+// Specify plot settings.
+myplot.set ( "size-factor", 300 );
+myplot.set ( "size-width", 100 );
+myplot.set ( "size-height", 50 );
+
+// Re-format Title
+var title = fname.split("_");
+var niceTitle = title[2] + ' ' + title[1].replace("-", " ") + ' ' + title[3].replace("s", "")
+myplot.set ( "title-text", niceTitle );
+myplot.set ( "font-master", "SansSerif" );
+
+myplot.set ( "color-background", "white" );
+myplot.set ( "interpolate", false );
+
+myplot.set ( "scale-colorbar", "panoply.act" );
+myplot.set ( "scale-invalids", "rgb(191,191,191)" );
+myplot.set ( "scale-width", 60 );
+myplot.set ( "scale-reverse", false );
+myplot.set ( "scale-outlier-side", "both" );
+myplot.set ( "scale-outlier-shape", "triangle" );
+myplot.set ( "scale-outlier-gap", "thin" );
+myplot.set ( "scale-tick-size", 11.0 );
+myplot.set ( "scale-label-location", "above" );
+
+myplot.set ( "scale-min", 0.0 );
+myplot.set ( "scale-max", 2.0 );
+myplot.set ( "scale-div-major", 5 );
+myplot.set ( "scale-div-minor", 2 );
+myplot.set ( "scale-exponent", 0 );
+myplot.set ( "scale-method", "SCALAR" );
+myplot.set ( "scale-label-custom", false );
+myplot.set ( "scale-tick-format", "%.3G" );
+
+myplot.set ( "scale-minmax-note", false );
+myplot.set ( "scale-minmax-format", "Same" );
+
+myplot.set ( "proj-name", "Orthographic" );
+// GOES-16
+myplot.set ( "proj-lon0", -75.0 );
+myplot.set ( "proj-lat0", 0.0 );
+myplot.set ( "proj-xparam-1", 90.0 );
+
+myplot.set ( "grid-spacing-lon", 0.0 );
+myplot.set ( "grid-spacing-lat", 0.0 );
+myplot.set ( "grid-offset-lat", false );
+myplot.set ( "grid-label-step", 0 );
+myplot.set ( "grid-label-size", 6.5 );
+myplot.set ( "border-weight", 150 );
+
+myplot.set ( "overlay-1-weight", 75 );
+myplot.set ( "overlay-1-name", "MWDB_Coasts_1.cnob" );
+myplot.set ( "overlay-1-color", "black" );
+myplot.set ( "overlay-2-weight", 0 );
+myplot.set ( "overlay-3-weight", 0 );
+
+myplot.set ( "proj-shading-vis", false );
+
+myplot.set ( "grid-weight", 50 );
+myplot.set ( "grid-style", "solid" );
+myplot.set ( "grid-color", "black" );
+myplot.set ( "contour-weight", 0 );
+
+// Save plot image to disk.
+myplot.saveImage ( "GIF", outputdir + varname + "_" + fname + ".gif" );
