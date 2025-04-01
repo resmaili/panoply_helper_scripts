@@ -47,9 +47,8 @@ Panoply will open/run for each file in the input directory. If you want to only 
 Panoply is quite verbose and will throw an error if anything is amiss.
 
 ## Author
-* **Rebekah Bradley Esmaili** [bekah@umd.edu](mailto:bekah@umd.edu)
-* Note: These resources are NOT official. Use at you own risk.
+* **Rebekah Bradley Esmaili** [rebekah.esmaili@gmail.com](mailto:rebekah.esmaili@gmail.com)
 
 ## More Information
 * [Panoply](https://www.giss.nasa.gov/tools/panoply/)
-* GOES-16 input data can be downloaded from NOAA's [Comprehensive Large Array-data Stewardship System (CLASS)](https://www.class.noaa.gov/)
+* GOES-R series data can be downloaded from the [Registry of Open Data on AWS](https://registry.opendata.aws/noaa-goes/) or NOAA's [Comprehensive Large Array-data Stewardship System (CLASS)](https://www.class.noaa.gov/)
